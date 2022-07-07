@@ -1,0 +1,144 @@
+img {
+    border-radius: 150px;
+    box-shadow: 0 0 5px 0 rgb(58, 57, 57);
+}
+
+@media only screen and (min-width: 1002px) {
+    img {
+        width: auto;
+    }
+
+    .imgD {
+        width: 300px;
+        box-shadow: 0 0 10px 0 rgb(242, 239, 239);
+    }
+
+    .imgD h4 {
+        font-size: 20px;
+        color: #dfdddd;
+        margin-bottom: 5px;
+    }
+
+    .imgD h3 {
+        font-size: 25px;
+    }
+
+    .top {
+        font-size: 25px;
+        letter-spacing: 2px;
+    }
+
+    .ABbox {
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 70px;
+    }
+
+    .aboutData {
+        width: 50%;
+        padding: 20px;
+        box-shadow: 0 0 10px 0 rgb(242, 239, 239);
+        border-radius: 20px;
+    }
+
+    .aboutData p {
+        padding: 30px 30px;
+        letter-spacing: 2px;
+        font-size: 20px;
+        line-height: 2;
+        margin-top: 25px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .aboutData h3 {
+        margin-top: 30px;
+        font-size: 25px;
+    }
+}
+
+.aboutData h3 {
+    color: #e633fa;
+}
+
+.aboutData h1 {
+    color: aqua;
+}
+
+@media only screen and (max-width: 1000px) {
+    img {
+        width: 90%;
+    }
+
+    .imgD {
+        width: 70%;
+        margin: auto;
+    }
+
+    .imgD h4 {
+        font-size: 15px;
+        color: #dfdddd;
+        margin-bottom: 5px;
+    }
+
+    .imgD h3 {
+        font-size: 20px;
+    }
+
+    .imgD h2 {
+        font-size: 20px;
+    }
+
+    .aboutData {
+        margin: auto;
+        margin-bottom: 50px;
+        width: 80%;
+        padding: 20px;
+        /* box-shadow: 0 0 10px 0 rgb(242, 239, 239); */
+        border-radius: 20px;
+    }
+
+    .aboutData h1 {
+        font-size: 19px;
+        margin-bottom: 15px;
+    }
+
+    .aboutData p {
+        margin-bottom: 20px;
+        line-height: 2;
+        padding: 10px;
+    }
+}
+
+
+.imgD {
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.imgD h2 {
+    color: rgb(20, 204, 180);
+    margin: 10px;
+}
+
+.imgD h3 {
+    color: #05ee53;
+    margin: 8px;
+}
+
+sup {
+    color: rgb(10, 48, 1);
+    font-size: 15px;
+}
+
+.top {
+    color: gold;
+    margin: 40px 0;
+}
+.abIcon{
+    display: flex;
+    flex-wrap: wrap;
+}

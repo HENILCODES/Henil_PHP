@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        * {
+            color: rosybrown;
+        }
+
+        .video-container {
+            height: 1000px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        video {
+            object-fit: cover;
+            position: fixed;
+            height: 1000px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 30%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #333;
+            color: white;
+        }
+
+        .video-container:after {
+            content: '';
+            display: block;
+            height: 1000px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(black, .2);
+            z-index: -1;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-weight: 900;
+            margin: 0 0 1rem;
+            padding: 0;
+            line-height: 1;
+            font-family: Futura, Helvetica, sans-serif;
+            font-size: 5vw;
+
+            @media (max-width: 400px) {
+                font-size: 22px;
+            }
+
+            @media (min-width: 1200px) {
+                font-size: 75px;
+            }
+        }
+        .callout {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .support {
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            text-transform: uppercase;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-align: right;
+            position: relative;
+            z-index: 10;
+        }
+
+        #img1 {
+            height: 90%;
+            width: 90%;
+            opacity: 70%;
+        }
+        #img1:hover{
+            transition: .5s;
+            transform: rotate(360deg);
+        }
+        </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="https://www.youtube.com/silveroakuni"><i class="fa-solid fa-bars"></i>
+            Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://silveroakuni.ac.in/"><i class="fa-solid fa-house"></i>Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://goo.gl/maps/Y3TjmTuFn8U5UKgx7"><i
+                            class="fa-solid fa-location-dot"></i>Location</a>
+                </li>
+                <div class="dropdown">
+                    <button class="secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item"
+                                href="https://silveroakuni.ac.in/about?gclid=EAIaIQobChMIo5bLs4Xo9wIVg7mWCh3GDwUmEAAYASACEgLUWvD_BwE"><i
+                                    class="fa-solid fa-address-card"></i>About</a></li>
+                        <li><a class="dropdown-item" href="https://silveroakuni.ac.in/gallery"><i
+                                    class="fa-solid fa-camera"></i>Gallery</a></li>
+                        <li><a class="dropdown-item" href="https://silveroakuni.ac.in/past-events"><i
+                                    class="fa-solid fa-calendar-check"></i>event</a></li>
+                    </ul>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link enabled" href="https://www.facebook.com/SilverOakUni/"><i
+                            class="fa-brands fa-facebook"></i></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+        </div>
+
+    </nav>
+
+    <section class="video-container">
+        <video src="BellaV.mp4" autoplay loop playsinline muted></video>
+        <div class="callout">
+            <div class="row justify-content-center" id="gallery">
+                <div class="col-4">
+                    <img class="w-40" id="img1" src="money.png">
+                </div>
+                <div class="col-4">
+                    <img class="w-40" id="img1" src="money.png">
+                </div>
+                <div class="col-4">
+                    <img class="w-40" id="img1" src="money.png">
+                </div>
+                <div class="col-4">
+                    <img class="w-40" id="img1" src="money.png">
+                </div>
+                <div class="col-4">
+                    <img class="w-40" id="img1" src="money.png">
+                </div>
+                <div class="col-4">
+                    <img class="w-40" id="img1" src="money.png">
+                </div>
+                <div class="support">
+                    <a href="http://caniuse.com/#search=object-fit"></a><br>
+                    <a href="https://github.com/jonathantneal/fitie"></a>
+                </div>
+    </section>
+
+</html>
+</header>
+
+</div>
+
+</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</body>
+
+</html>

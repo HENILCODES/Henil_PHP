@@ -1,0 +1,18 @@
+<!-- HTML CODE -->
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <form name="fom" autocomplete="off" class="form" method="post">
+    
+<div class="Table">
+        <h4 id="MTH"> Multiplication Table </h4><hr>
+                
+       <strong id="nu"> Number </strong><input type="number" placeholder="Enter Number" name="mt" id="TNum" min="1">
+                
+       <input type="button" class="bt" id="TableBT" onclick="return tables()" value="Print Table">
+            
+       <input type="button" class="bt" id="Tableclear" onclick="clear()" value="clear"><hr>
+                
+       <div id="Mtans"></div>
+</div>
+</form>

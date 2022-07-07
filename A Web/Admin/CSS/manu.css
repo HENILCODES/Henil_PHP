@@ -1,0 +1,184 @@
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.textdec {
+  text-decoration: none;
+}
+
+.font_22 {
+  font-size: 22px;
+}
+
+.font-19 {
+  font-size: 19px !important;
+}
+
+.width-330 {
+  width: 300px !important;
+}
+
+.Admin {
+  background-color: #204d74 !important;
+  color: white !important;
+}
+
+.tables {
+  max-height: 340px;
+  overflow: auto;
+  border: 2px solid blue;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(180, 177, 176, 0.792);
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: default;
+}
+
+.nav .manu {
+  background-color: #3211b8;
+  width: 100%;
+  -webkit-box-shadow: -8px -13px 20px 20px black;
+          box-shadow: -8px -13px 20px 20px black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 5px 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav .manu .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav .manu .logo .Site_Name {
+  color: #5aff61;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 0;
+  text-decoration: none;
+  font-size: 27px;
+}
+
+.nav .manu .Site_Name {
+  padding-top: 5px;
+}
+
+.nav .manu .Img img {
+  width: 45px;
+}
+
+.nav .manu .logForm form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav .manu .logForm form .Button {
+  margin-top: 1px;
+  padding: 8px 20px;
+  background-color: gold;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  height: 100%;
+  margin-top: -45px;
+}
+
+.main .maun_Link {
+  background-color: #3211b8;
+  -webkit-box-shadow: 8px 20px 20px 0px black;
+          box-shadow: 8px 20px 20px 0px black;
+  width: 250px;
+  display: block;
+  padding-top: 30px;
+}
+
+.main .maun_Link .links {
+  margin-top: 25px;
+}
+
+.main .maun_Link .links .link {
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: gold;
+  padding: 10px 29px;
+  text-transform: capitalize;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  font-size: 28px;
+  width: 100%;
+}
+
+.main .container {
+  width: 100%;
+  padding: 12px;
+  overflow: auto;
+  margin: 20px;
+  height: 100%;
+  margin-bottom: 40px;
+  padding-bottom: 150px;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.act {
+  background-color: gold !important;
+  color: black !important;
+  -webkit-box-shadow: inset 0px 3px 19px 2px #0e00ad;
+          box-shadow: inset 0px 3px 19px 2px #0e00ad;
+}
+
+.band {
+  background-color: #ff1500 !important;
+  color: #fcf9f9 !important;
+  -webkit-box-shadow: inset 0px 3px 19px 2px #0e00ad;
+          box-shadow: inset 0px 3px 19px 2px #0e00ad;
+}
+
+.Verified {
+  background-color: #0aab2f !important;
+  color: #fcf9f9 !important;
+  -webkit-box-shadow: inset 0px 3px 19px 2px #0e00ad;
+          box-shadow: inset 0px 3px 19px 2px #0e00ad;
+}
+/*# sourceMappingURL=manu.css.map */
