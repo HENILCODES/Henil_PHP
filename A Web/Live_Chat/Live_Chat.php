@@ -56,7 +56,7 @@ include("dbcon.php");
                 if (isset($_POST['Done'])) {
                     $file = $_FILES["file"]["name"];
                     $FiD_Name = time() . $_FILES["file"]["name"];
-                    $chat = str_ireplace("<script>","**",$_POST['chat_u']);
+                    $chat = str_ireplace("<","&lt;",$_POST['chat_u']);
 
                     $in = "insert into message (User_Name,Message,file,File_Name,Time_Stamps) values ('$live_U','$chat','$FiD_Name','$file','$time_C')";
                     mysqli_query($conn, $in);
