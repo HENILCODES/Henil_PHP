@@ -52,11 +52,13 @@ include("dbcon.php");
                 if (empty($_POST['chat_u'])) {
                     $_POST['chat_u'] = ".";
                 }
+                
                 if (isset($_POST['Done'])) {
                     $file = $_FILES["file"]["name"];
                     $FiD_Name = time() . $_FILES["file"]["name"];
+                    $chat = str_ireplace("<script>","**",$_POST['chat_u']);
 
-                    $in = "insert into message (User_Name,Message,file,File_Name,Time_Stamps) values ('$live_U','$_POST[chat_u]','$FiD_Name','$file','$time_C')";
+                    $in = "insert into message (User_Name,Message,file,File_Name,Time_Stamps) values ('$live_U','$chat','$FiD_Name','$file','$time_C')";
                     mysqli_query($conn, $in);
                     if (move_uploaded_file($_FILES["file"]["tmp_name"], "U_Files/" . $FiD_Name)) {
                         header("Location: Live_Chat.php");
