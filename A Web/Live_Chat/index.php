@@ -25,10 +25,6 @@
         <a class="bi bi-instagram" href="https://www.instagram.com/henil_v_p/"></a>
     </div>
     <div class="header">
-        <marquee>
-            <p>That Web-site in You Send Message & Files & some
-                time Press Refresh button for see new Message. if you Delete Some Message Show You will communicate in Facebook & instagram i am alredy Provide My Social Account Link on that web-Site. </p>
-        </marquee>
         <div class="main">
             <div class="top">
                 <div class="top1">
