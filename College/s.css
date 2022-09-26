@@ -5,13 +5,26 @@ table input {
 table{
   text-align: center;
 }
-tr,
-td {
+#table tr,td ,th{
   padding: 5px;
+  width: 150px;
   padding-right: 20px;
 }
+tr:nth-child(even){
+  background-color: rgb(210, 210, 210);
+}
+tr:nth-child(1){
+  background-color: rgb(211, 135, 255);
 
+}
 td:first-child {
   font-size: 20px;
   font-weight: bold;
+}
+#inputs{
+  width: 100px;
+  text-align: right;
+}
+thead{
+  text-align: right !important;
 }

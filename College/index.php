@@ -18,42 +18,42 @@ include "db.php";
         <li><a href="add.php">Add</a></li>
         <li><a href="update.php">Update</a></li>
     </ul>
-    <div class="search">
-        <input type="search" onkeyup="serch()" name="ids" id="inputs">
-    </div>
-    <table border="1" cellpadding="10" cellspacing="0" id="table">
-        <thead>
-            <th>ID</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>email</th>
-            <th>number</th>
-            <th>DOB</th>
-        </thead>
-        <?php
-        $sele = "select * from student";
-        $ex = mysqli_query($conn, $sele);
-        while ($row = mysqli_fetch_array($ex)) {
-        ?>
-            <tr class="tr">
-                <td><?php echo $row['ID'] ?></td>
-                <td><?php echo $row['std_name'] ?></td>
-                <td><?php echo $row['std_city'] ?></td>
-                <td><?php echo $row['std_email'] ?></td>
-                <td><?php echo $row['std_number'] ?></td>
-                <td><?php echo $row['std_dob'] ?></td>
+    <div class="box">
+        <table cellpadding="10" cellspacing="0" id="table">
+            <thead>
+                <th colspan="6"><input type="search" onkeyup="serch()" placeholder="search by id" id="inputs"></th>
+            </thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>email</th>
+                <th>number</th>
+                <th>DOB</th>
             </tr>
-        <?php
-        }
-        ?>
-    </table>
+            <?php
+            $sele = "select * from student";
+            $ex = mysqli_query($conn, $sele);
+            while ($row = mysqli_fetch_array($ex)) {
+            ?>
+                <tr class="tr">
+                    <td><?php echo $row['ID'] ?></td>
+                    <td><?php echo $row['std_name'] ?></td>
+                    <td><?php echo $row['std_city'] ?></td>
+                    <td><?php echo $row['std_email'] ?></td>
+                    <td><?php echo $row['std_number'] ?></td>
+                    <td><?php echo $row['std_dob'] ?></td>
+                </tr>
+            <?php
+            }
+            ?>
+        </table>
+    </div>
 </body>
 <script>
     function serch() {
 
-        input = document.getElementById("inputs");
-
-        filter = input.value;
+        input = document.getElementById("inputs").value;
 
         table = document.getElementById("table");
 
@@ -63,8 +63,7 @@ include "db.php";
             td = tr[i].getElementsByTagName("td")[0];
             if (td) {
                 txtValue = td.innerText;
-                console.log(txtValue);
-                if (txtValue.indexOf(filter) > -1) {
+                if (txtValue.indexOf(input) > -1) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
