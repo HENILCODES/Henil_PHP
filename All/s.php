@@ -4,7 +4,7 @@
     <title>Henil</title>
 </head>
 <body>
-    <form action="up.php" method="post" enctype="multipart/form-data">
+    <form action="up.php" method="post" >
         <label for="file">Filename</label>
         <input type="file" name="file" id="file">
         <br>
