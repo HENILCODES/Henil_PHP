@@ -1,0 +1,23 @@
+awk '/henil/ {count++} END {print count}' file.txt
+
+----
+awk '{print $2}' emp.txt | sort | uniq -c
+
+--------
+awk -F "|" '{print$2 length($2)<5}' emp.txt | cat -n
+
+-------
+awk 'NR>=8 && NR<=11' f3.txt 
+
+------------
+read -p "Enter " path
+for((i=1;i<=$path;i++))
+do
+    if [ $((i%2)) -eq 0 ]
+    then
+        echo "Even"
+    else
+        echo "odd"
+    fi
+done | sort | uniq -c
+--------------
