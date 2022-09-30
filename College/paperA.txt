@@ -7,6 +7,44 @@ awk '{print $2}' emp.txt | sort | uniq -c
 awk -F "|" '{print$2 length($2)<5}' emp.txt | cat -n
 
 -------
+awk -F "|" '$3>=4000{print$2}' file.txt
+
+awk -F "|" '$3>=2000&&$3<=10000{print$2}' emp.txt
+------------------
+
+sed '1,7p' unix.txt
+
+-------------
+
+date +%T-%p     /*hh:mm:ss-am/pm*/
+ 
+date +%d-%m-%Y      /* dd-mm-yyyy */
+
+cal march 2015
+
+--------------
+ 
+cut -d "|" -f 2 employe.txt   /* to display only second record from file*/ 
+
+--------------
+
+comm employee.txt e.txt
+
+-------------
+
+cmp employee.txt e.txt 
+
+
+-------------
+
+grep ^'The' unix.txt   /*starting*/
+
+grep unix$ unix.txt
+
+-------------
+
+
+--------------
 awk 'NR>=8 && NR<=11' f3.txt 
 
 ------------
@@ -20,4 +58,45 @@ do
         echo "odd"
     fi
 done | sort | uniq -c
+
 --------------
+
+while [ $a -lt 10 ] 
+do
+    echo $a
+    if [ $a -eq 5 ] 
+    then
+        break 
+    fi
+    a=`expr $a + 1`
+done
+
+--------------
+
+echo Welcome | rev
+
+--------------
+
+----------------
+
+while true 
+do
+    echo "Enter Number "
+    read a
+    
+    if [ $a -gt 0 ]
+	then
+		 echo "\t Positive"
+	elif [ $a -lt 0 ]
+	then
+		 echo "Negative"
+    elif [ $a -eq 0 ]
+    then
+		 echo "Zero"
+	else
+        echo "Good by"
+        break;
+	fi
+done
+
+---------------
