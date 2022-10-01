@@ -19,7 +19,7 @@
                     <a href="add.php" class="nav-link active"> add </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link "> delete</a>
+                    <a href="delete.php" class="nav-link "> delete</a>
                 </li>
             </ul>
         </div>

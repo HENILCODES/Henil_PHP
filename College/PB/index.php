@@ -19,27 +19,36 @@
           <a href="add.php" class="nav-link "> add </a>
         </li>
         <li class="nav-item">
-          <a href="" class="nav-link "> delete</a>
+          <a href="delete.php" class="nav-link "> delete</a>
         </li>
       </ul>
     </div>
   </nav>
-  <div class="container my-3">
-    
-    <div class="card border border-dark" style="width:250px;">
-      <img src="IMG/audio.jpg" class="card-img-top" >
-      <div class="card-body">
-        <span class="badge text-bg-info">#2000</span>
-        <div class="d-flex justify-content-between">
-          <h5>Watch</h5>
-          <h5 class="card-title">2000</h5>
+  <div class="container my-3 d-flex flex-wrap">
+
+    <?php
+    include "db.php";
+    $sele = "select * from watch_store";
+    $resS = mysqli_query($conn, $sele);
+    while ($row = mysqli_fetch_array($resS)) {
+    ?>
+      <div class="card border border-dark mx-4" style="width:250px;">
+        <img src="File/<?php echo $row['IMAGE'] ?>" class="card-img-top">
+        <div class="card-body">
+          <span class="badge text-bg-info"><?php echo $row['PID'] ?></span>
+          <div class="d-flex justify-content-between">
+            <h5><?php echo $row['PNAME'] ?></h5>
+            <h5 class="card-title"><?php echo $row['PRICE'] ?></h5>
+          </div>
+          <div class="overflow-hidden opacity-50" style="height: 57px;">
+            <p class="card-text"><?php echo $row['DESCRIPTION'] ?></p>
+          </div>
+          <button class="btn btn-primary">Buy</button>
         </div>
-        <div class="overflow-hidden opacity-50" style="height: 57px;">
-          <p class="card-text">Lorem ipsum dolor, sitnsgdj njasgd jh dg hdgf hf h sd kns df sdn fmsn dfnsv dfns ddsbvdfnb  sd gs jdg hgf jshd jsd fsd sh jfh df sdfshjgf jdsj fdj amet consectetur adipisicing elit. Molestias nisi nobis dolores. </p>
-        </div>
-        <button class="btn btn-primary">Buy</button>
       </div>
-    </div>
+    <?php
+    }
+    ?>
   </div>
 </body>
 <script src="JS/bootstrap.min.js"></script>
