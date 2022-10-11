@@ -30,11 +30,11 @@ include("dbcon.php");
         <div class="main">
             <div class="top">
                 <div class="top1">
-                    <span> <a href="http://henil.42web.io/Live_Chat/" class="logo">Live Chat </a></span>
+                    <span> <a href="https://henil.rf.gd/Live_Chat/" class="logo">Live Chat </a></span>
                     <h3 class="live_User"> Welcome <span class="live_U"><?php echo $live_U ?></span> </h3>
                 </div>
                 <div class="top2">
-                    <a href="whatsapp://send?text=Join With Me for Live Chatting http://henil.42web.io/Live_Chat/ Come Fast." class="invite_a bi bi-whatsapp" title="Send To What's app"></a>
+                    <a href="whatsapp://send?text=Join With Me for Live Chatting https://henil.rf.gd/Live_Chat/ Come Fast." class="invite_a bi bi-whatsapp" title="Send To What's app"></a>
                     <a class="bi bi-arrow-clockwise" href="Live_Chat.php" id="ref"></a>
                     <form action="logout_Code.php" method="post" class="log_Form">
                         <button name="Log_Out" type="submit" class='login_log'>Log out</button>
