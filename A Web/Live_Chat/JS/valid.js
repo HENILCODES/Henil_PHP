@@ -24,12 +24,3 @@ User_password.addEventListener("keyup",function(){
         document.getElementById("show_hide_password").style.display = "block";
     }
 })
-
-var User_name = document.getElementById("user");
-User_name.addEventListener("keyup",function(){
-    User_name.value = User_name.value.toLowerCase();
-})
-var User_email = document.getElementById("Uemail");
-User_email.addEventListener("keyup",function(){
-    User_email.value = User_email.value.toLowerCase();
-})
