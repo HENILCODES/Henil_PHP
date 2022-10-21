@@ -6,7 +6,7 @@ include("PHP/DataBaseCon.php");
 if (isset($_POST['Audio_upload'])) {
     date_default_timezone_set("Asia/Calcutta");
 
-    $AUser_name = "Henil";
+    $AUser_name = $_POST['username'];
     $AD_name = "$_POST[Music_Name]";
     $AD_file = time() . $_FILES["Audio_file"]["name"];
     $AD_language = "$_POST[Audio_language]";
@@ -28,7 +28,7 @@ if (isset($_POST['Audio_upload'])) {
                     echo "Eror";
                 }
             } else {
-                echo "S";
+                echo $AUser_name;
             }
         } catch (\Throwable $th) {
             //throw $th;
