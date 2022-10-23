@@ -39,7 +39,7 @@
                 <input required type="text" class="form-control" name="PPRICE" placeholder="Price">
             </div>
             <div class="input-group">
-                <input type="file" class="form-control form-control-lg" name="PFILE" accept="image/*">
+                <input type="file" class="form-control form-control-lg" name="file" accept="image/*">
             </div>
             <div class="input-group">
                 <span class="input-group-text w-25 justify-content-center">Description</span>
@@ -59,14 +59,18 @@ if (isset($_REQUEST['UPLOAD'])) {
     $PID = $_REQUEST['PID'];
     $PNAME = $_REQUEST['PNAME'];
     $PPRICE = $_REQUEST['PPRICE'];
-    $PFILE = $_FILES['PFILE']['name'];
+    $PFILE = $_FILES['file']['name'];
     $PDESCRIP = $_REQUEST['PDESCRIP'];
 
-    if (move_uploaded_file($_FILES['PFILE']['tmp_name'], "File/" . $PFILE)) {
-        $inse = "insert into watch_store (PID, PNAME, PRICE, IMAGE, DESCRIPTION) values ($PID,'$PNAME',$PPRICE,'$PFILE','$PDESCRIP')";
-        $re = mysqli_query($conn, $inse);
+    if (move_uploaded_file($_FILES['file']['tmp_name'], "Files/" . $PFILE)) {
         if ($re) {
+            
+            $inse = "insert into watch_store (PID, PNAME, PRICE, PIMAGE, PDESCRIPTION) values ($PID,'$PNAME',$PPRICE,'$PFILE','$PDESCRIP')";
+            $re = mysqli_query($conn, $inse);
             echo "Add";
+
+        }else{
+            echo "0";
         }
     } else {
         echo "eroor";

@@ -14,7 +14,7 @@ include "db.php";
 
 <body>
     <ul>
-        <li><a href="/">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <li><a href="add.php">Add</a></li>
         <li><a href="update.php">Update</a></li>
     </ul>
@@ -37,12 +37,12 @@ include "db.php";
             while ($row = mysqli_fetch_array($ex)) {
             ?>
                 <tr class="tr">
-                    <td><?php echo $row['ID'] ?></td>
-                    <td><?php echo $row['std_name'] ?></td>
-                    <td><?php echo $row['std_city'] ?></td>
-                    <td><?php echo $row['std_email'] ?></td>
-                    <td><?php echo $row['std_number'] ?></td>
-                    <td><?php echo $row['std_dob'] ?></td>
+                    <td><?php echo $row['SPID'] ?></td>
+                    <td><?php echo $row['SNAME'] ?></td>
+                    <td><?php echo $row['CITY'] ?></td>
+                    <td><?php echo $row['EMAIL'] ?></td>
+                    <td><?php echo $row['CONTACT'] ?></td>
+                    <td><?php echo $row['DOB'] ?></td>
                 </tr>
             <?php
             }

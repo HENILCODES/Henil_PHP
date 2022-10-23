@@ -15,8 +15,8 @@
         <li><a href="add.php">Add</a></li>
         <li><a href="update.php">Update</a></li>
     </ul>
-
     <table>
+        <span></span>
         <form method="post" autocomplete="off">
             <tr>
                 <td>Your Name</td>
@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td>Date of Birth</td>
-                <td><input required type="date" name="date" max="2003-01-31" placeholder="Student Date of birth"></td>
+                <td><input required type="date" max="2003-12-31" min="2000-01-01" name="date" placeholder="Student Date of birth"></td>
             </tr>
             <tr>
                 <td>Student City</td>
@@ -36,7 +36,7 @@
             </tr>
             <tr>
                 <td>Contact Number</td>
-                <td><input required type="text" name="contact" placeholder="Student Contact"></td>
+                <td><input required type="text" maxlength="10" name="contact" placeholder="Student Contact"></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" name="register" value="Register"></td>
@@ -56,10 +56,12 @@ if (isset($_REQUEST['register'])) {
     $contact = $_REQUEST['contact'];
 
     try {
-        $query = "insert into student (std_name,std_city,std_email,std_number,std_dob) values ('$name','$city','$email','$contact','$date')";
+        $query = "insert into student (SNAME,CITY,EMAIL,CONTACT,DOB) values ('$name','$city','$email','$contact','$date')";
         $exc = mysqli_query($conn, $query);
         if (!$exc) {
             echo "Not Add ";
+        }else{
+            header("location:index.php");
         }
     } catch (Exception $th) {
         die("invalid data");

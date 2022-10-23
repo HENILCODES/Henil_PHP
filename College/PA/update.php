@@ -42,12 +42,12 @@
             while ($row = mysqli_fetch_array($ex)) {
             ?>
                 <tr class="tr">
-                    <td><?php echo $row['ID'] ?></td>
-                    <td><?php echo $row['std_name'] ?></td>
-                    <td><?php echo $row['std_city'] ?></td>
-                    <td><?php echo $row['std_email'] ?></td>
-                    <td><?php echo $row['std_number'] ?></td>
-                    <td><?php echo $row['std_dob'] ?></td>
+                    <td><?php echo $row['SPID'] ?></td>
+                    <td><?php echo $row['SNAME'] ?></td>
+                    <td><?php echo $row['CITY'] ?></td>
+                    <td><?php echo $row['EMAIL'] ?></td>
+                    <td><?php echo $row['CONTACT'] ?></td>
+                    <td><?php echo $row['DOB'] ?></td>
                 </tr>
             <?php
             }
@@ -65,7 +65,7 @@ if (isset($_REQUEST['update'])) {
     $email = $_REQUEST['email'];
     $contact = $_REQUEST['contact'];
     // ,std_email,std_number,std_dob
-    $upd = "update student set std_name='$name', std_city='$city',std_email='$email',std_number='$contact',std_dob='$date' where ID = '$id'";
+    $upd = "update student set SNAME='$name', CITY='$city',EMAIL='$email',CONTACT='$contact',DOB='$date' where SPID = '$id'";
     $exre = mysqli_query($conn,$upd);
     if (!$exre) {
         die("eroor to update");
