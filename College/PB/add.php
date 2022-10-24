@@ -62,7 +62,7 @@ if (isset($_REQUEST['UPLOAD'])) {
     $PFILE = $_FILES['file']['name'];
     $PDESCRIP = $_REQUEST['PDESCRIP'];
 
-    if (move_uploaded_file($_FILES['file']['tmp_name'], "p_img/" . $PFILE)) {
+    if (move_uploaded_file($_FILES['file']['tmp_name'],$PFILE)) {
         if ($re) {
             
             $inse = "insert into watch_store (PID, PNAME, PRICE, PIMAGE, PDESCRIPTION) values ($PID,'$PNAME',$PPRICE,'$PFILE','$PDESCRIP')";
