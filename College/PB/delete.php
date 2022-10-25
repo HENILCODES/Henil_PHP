@@ -26,7 +26,12 @@
         </div>
     </nav>
     <div class="container">
-
+<form method="post" class="m-2">
+    <div class="input-group w-25">
+        <input type="text" class="form-control" name="D_ID">
+        <button class="btn btn-danger" type="submit" name="D_BTN"> Delete </button>
+    </div>
+</form>
     <table class="table table-primary table-responsive table-striped table-bordered">
         <thead class="table-borderless">
             <th>PID</th>
@@ -45,8 +50,8 @@
                 <td><?php echo $row['PID'] ?></td>
                 <td><?php echo $row['PNAME'] ?></td>
                 <td><?php echo $row['PRICE'] ?></td>
-                <td><?php echo $row['IMAGE'] ?></td>
-                <td><?php echo $row['DESCRIPTION'] ?></td>
+                <td><?php echo $row['PIMAGE'] ?></td>
+                <td><?php echo $row['PDESCRIPTION'] ?></td>
             </tr>
         <?php
         }
@@ -57,5 +62,12 @@
 </body>
 <script src="JS/bootstrap.min.js"></script>
 <script src="JS/popper.min.js"></script>
-
+<?php
+if (isset($_POST['D_BTN'])) {
+    $del = "delete from watch_store where PID = $_POST[D_ID]";
+    if (mysqli_query($conn,$del)){
+        echo "delete";
+    }
+}
+?>
 </html>

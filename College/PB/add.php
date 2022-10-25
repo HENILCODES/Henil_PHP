@@ -62,13 +62,11 @@ if (isset($_REQUEST['UPLOAD'])) {
     $PFILE = $_FILES['file']['name'];
     $PDESCRIP = $_REQUEST['PDESCRIP'];
 
-    if (move_uploaded_file($_FILES['file']['tmp_name'],$PFILE)) {
+    if (move_uploaded_file($_FILES['file']['tmp_name'],"p_img/".$PFILE)) {
+        $inse = "insert into watch_store (PID, PNAME, PRICE, PIMAGE, PDESCRIPTION) values ($PID,'$PNAME',$PPRICE,'$PFILE','$PDESCRIP')";
+        $re = mysqli_query($conn, $inse);
         if ($re) {
-            
-            $inse = "insert into watch_store (PID, PNAME, PRICE, PIMAGE, PDESCRIPTION) values ($PID,'$PNAME',$PPRICE,'$PFILE','$PDESCRIP')";
-            $re = mysqli_query($conn, $inse);
             echo "Add";
-
         }else{
             echo "0";
         }

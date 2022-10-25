@@ -33,15 +33,15 @@
     while ($row = mysqli_fetch_array($resS)) {
     ?>
       <div class="card border border-dark mx-4" style="width:250px;">
-        <img src="File/<?php echo $row['IMAGE'] ?>" class="card-img-top">
+        <img src="p_img/<?php echo $row['PIMAGE'] ?>" class="card-img-top">
         <div class="card-body">
-          <span class="badge text-bg-info"><?php echo $row['PID'] ?></span>
+          <span class="badge text-bg-info">#<?php echo $row['PID'] ?></span>
           <div class="d-flex justify-content-between">
             <h5><?php echo $row['PNAME'] ?></h5>
             <h5 class="card-title"><?php echo $row['PRICE'] ?></h5>
           </div>
           <div class="overflow-hidden opacity-50" style="height: 57px;">
-            <p class="card-text"><?php echo $row['DESCRIPTION'] ?></p>
+            <p class="card-text"><?php echo $row['PDESCRIPTION'] ?></p>
           </div>
           <button class="btn btn-primary">Buy</button>
         </div>
