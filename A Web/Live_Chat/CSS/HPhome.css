@@ -82,6 +82,7 @@ marquee p {
     width: 500px;
     margin: auto;
     box-shadow: 0 0 20px 0 black;
+    margin-top: 40px;
     border-radius: 9px;
 }
 .live_User{

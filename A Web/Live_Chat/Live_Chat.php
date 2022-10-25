@@ -17,12 +17,8 @@ include("dbcon.php");
     <script src="JS/jqcha.js"></script>
 </head>
 
-<body onload="focusIn()">
-    <div class="Dev_logo">
-        <a class="bi bi-facebook" href="https://www.facebook.com/henil.prajapati.376"></a>
-        <a href="https://henilcodes.github.io/PH/" class="Dev_Lo"> <img src="CSS/Henil.jpg" alt=""></a>
-        <a class="bi bi-instagram" href="https://www.instagram.com/henil_v_p/"></a>
-    </div>
+<body>
+   
     <div class="header">
         <?php
         $live_U = $_SESSION['User_N'];
@@ -99,6 +95,7 @@ include("dbcon.php");
 
 </html>
 <script>
+    document.addEventListener("load",focusIn());
     function focusIn() {
         window.location = "Live_Chat.php#HP";
         document.getElementById("ChatsBox").focus();
