@@ -10,13 +10,13 @@ include("dbcon.php");
 <head>
     <title>Henil</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="icon" href="https://secure.gravatar.com/avatar/19cef1c37b12cb5d47ce71e9894dd14f?s=160&d=identicon&r=g">
-    <link rel="stylesheet" href="CSS/HPhome.css">
+    <!-- <link rel="icon" href="https://secure.gravatar.com/avatar/19cef1c37b12cb5d47ce71e9894dd14f?s=160&d=identicon&r=g"> -->
+    <link rel="stylesheet" href="CSS/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="JS/jqcha.js"></script>
 </head>
 
-<body>
+<body onload="focusIn()">
     <div class="header">
         <?php
             $live_U = $_SESSION['User_N'];
@@ -39,15 +39,12 @@ include("dbcon.php");
                 <?php
                 date_default_timezone_set("Asia/Calcutta");
                 $time_C = date('d-M-Y g:i a');
-                if (empty($_POST['chat_u'])) {
-                    $_POST['chat_u'] = ".";
-                }
 
                 if (isset($_POST['Done'])) {
                     $file = $_FILES["file"]["name"];
                     $FiD_Name = time() . $_FILES["file"]["name"];
-                    $chat = str_ireplace("<", "&lt;", $_POST['chat_u']);
-
+                    $cha = str_ireplace("<", "&lt;", $_POST['chat_u']);
+                    $chat = base64_encode($cha);
                     $in = "insert into message (User_Name,Message,file,File_Name,Time_Stamps) values ('$live_U','$chat','$FiD_Name','$file','$time_C')";
                     mysqli_query($conn, $in);
                     if (move_uploaded_file($_FILES["file"]["tmp_name"], "U_Files/" . $FiD_Name)) {
@@ -62,7 +59,7 @@ include("dbcon.php");
                             <span> " . $r['User_Name'] . "</span>
                             </div>
                             <div class='userchat'>
-                            <span >" . $r['Message'] . " </span>
+                            <span >" . base64_decode($r['Message']) . " </span>
                             <span > <a target='_blank' class='hiper' href='U_Files/" . $r['file'] . "'>" . $r['File_Name'] . " </a></span>
                             </div>
                             <div class='time'>
@@ -81,9 +78,9 @@ include("dbcon.php");
                 <div id="chat_in">
                     <form method="POST" enctype="multipart/form-data" class="form">
                         <span class="bi bi-link-45deg" id="option"></span>
-                        <input type="text" required class="input" id="ChatsBox" value="s" name="chat_u" autocomplete="off" placeholder="Type Message" title="Type Message">
+                        <input type="text" required class="input" id="ChatsBox" name="chat_u" autocomplete="off" placeholder="Type Message" title="Type Message">
                         <input type="file" class="file_in none" id="file_input" name="file" hidden>
-                        <button class="send bi bi-send" name="Done"> </button>
+                        <button class="send bi bi-send" name="Done" > </button>
                     </form>
                 </div>
             </div>
@@ -93,8 +90,6 @@ include("dbcon.php");
 
 </html>
 <script>
-    document.addEventListener("load", focusIn());
-
     function focusIn() {
         window.location = "Live_Chat.php#HP";
         document.getElementById("ChatsBox").focus();

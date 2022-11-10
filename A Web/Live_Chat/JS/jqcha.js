@@ -10,7 +10,6 @@ $(document).ready(function(){
     });
     $('#pdf_B').click(function(){
         $('.opt').hide(500);
+        document.getElementById("option").after("D");
     });
-    $('#file_input').change(function(){
-    })
 });

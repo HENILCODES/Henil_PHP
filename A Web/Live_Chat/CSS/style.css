@@ -2,89 +2,69 @@
     margin: 0;
     padding: 0;
 }
-.none{
-    display: none;
-}
+
 @media only screen and (max-width: 1000px) {
     .header {
         zoom: 1.7;
         margin-top: 60px;
         transition: 0.5s;
     }
-
-    marquee p {
-        margin-bottom: 20px;
-    }
-    .bi-facebook {
-        cursor: pointer;
-        font-size: 85px;
-        background-color: white;
-        color: blue;
-    }
-    
-    .bi-instagram {
-        cursor: pointer;
-        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        font-size: 70px;
-        border-radius: 25px;
-        transition: .5s;
-        color: white;
-        padding: 11px 8px 1px 8px;
-        box-shadow: 0 0 10px 0 black;
-    }
-    .Dev_Lo img {
-        border-radius: 15px;
-        width: 200px;
-    }
 }
 
 @media only screen and (min-width: 1000px) {
-    .bi-facebook {
-        cursor: pointer;
-        font-size: 40px;
-        background-color: white;
-        color: blue;
-    }
     .invite_a{
         display: none;
     }
-    .bi-instagram {
-        cursor: pointer;
-        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        font-size: 30px;
-        border-radius: 11px;
-        height: 35px;
-        box-shadow: 0 0 5px 0 black;
-        transition: .5s;
-        color: white;
-        padding: 3px 5px 2px 5px;
+    .header{
+        margin-top: 40px;
     }
-
-    .Dev_Lo img {
-        border-radius: 10px;
-        width: 100px;
-        box-shadow: 0 0 8px 0 black;
-    }
-
 }
 
 body {
     cursor: default;
-    background-color: rgba(var(--b3f, 250, 250, 250), 1);
+    background-color: rgb(248, 239, 239);
 }
 
-marquee p {
-    color: red;
-    font-size: 20px;
-    text-transform: capitalize;
+.login{
+    border-radius: 40px;
+    font-size: 27px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: bold;
+    padding: 13px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 0 15px 0 rgb(119, 4, 181);
+    border: none;
+    background-color: gold;
+    text-shadow: 0 0 10px white;
+    transition: 0.5s;
 }
+.login:hover{
+    background-color: brown;
+    color: gold;
+    box-shadow: 0 0 10px 0 white;
+    border: 1px solid gold;
+}
+    .SignUp{
+        text-align: center;
+        color: gold;
+        background-color: brown;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px black;
+    }
+    .chats{
+        height: 450px;
+    }
+
 
 .main {
     background-color: antiquewhite;
     width: 500px;
     margin: auto;
     box-shadow: 0 0 20px 0 black;
-    margin-top: 40px;
     border-radius: 9px;
 }
 .live_User{
@@ -101,6 +81,7 @@ marquee p {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: brown;
+    user-select: none;
     color: rgb(204, 250, 210);
     padding: 5px 13px 6px 1px;
     justify-content: space-between;
@@ -155,7 +136,6 @@ a {
 
 .bottom .file_in {
     outline: none;
-    display: none;
     background-color: rgb(239, 232, 204);
     padding: 15px 0 15px 15px;
     font-size: 20px;
@@ -238,16 +218,16 @@ a {
 }
 
 #option {
-    font-size: 30px;
+    font-size: 32px;
     cursor: pointer;
     outline: none;
     background: brown;
     color: white;
-    width: 50px;
+    width: 70px;
     border: 1px solid rgb(148, 146, 146);
     border-bottom-left-radius: 10px;
     box-shadow: 0 0 5px black;
-    padding-top: 14px;
+    padding-top: 10px;
     text-align: center;
 }
 
@@ -273,14 +253,10 @@ a {
 
 .bottom .send:hover,
 .top2 a:hover,
-#option:hover,
-.logo:hover {
+#option:hover{
     color: gold;
 }
 
-.upload{
-    font-size: 18px;   
-}
 .chats {
     overflow: auto;
     height: 500px;
@@ -303,7 +279,7 @@ a {
     border-top-right-radius: 5px;
     border-top-left-radius: 15px;
     text-shadow: 0 0 10px beige;
-    padding: 5px 1px 5px 10px;
+    padding: 6px 1px 5px 15px;
 }
 
 .chats .user {
