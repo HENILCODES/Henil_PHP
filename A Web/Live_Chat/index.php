@@ -108,7 +108,7 @@ include("dbcon.php");
                         }, 5000)
                     </script>
                     <div class="SignUp">
-                        <h1>Start Live Chat <a href="/signup" class="login">Sign up</a> </h1>
+                        <h1>Start Live Chat <a href="Form_sigup.php" class="login">Sign up</a> </h1>
                     </div>
                 <?php
                 }
