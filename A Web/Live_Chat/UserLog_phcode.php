@@ -1,6 +1,6 @@
 <?php
 include "dbcon.php";
-if (!$Db_con) {
+if (!$conn) {
     die("DataBaseecho");
 }
 ?>
@@ -16,8 +16,6 @@ if (!$Db_con) {
 </head>
 
 <?php
-$Band = false;
-$Pending = false;
 $User_Name_Used = false;
 $User_Email_Used = false;
 $User_Not_Found = false;
@@ -38,7 +36,7 @@ if (isset($_POST['U_Signup'])) {
         $User_Email_Used = true;
     } else {
         $inser_pending_Q = "INSERT INTO user_table (UNAME, UPASSWORD, UEMAIL) VALUES ('$_POST[U_name]','$_POST[U_password]','$_POST[U_email]')";
-        $result_inser = mysqli_query($Db_con, $inser_pending_Q);
+        $result_inser = mysqli_query($conn, $inser_pending_Q);
         if ($result_inser) {
             header("location: Form_login.php");
         }
@@ -53,23 +51,15 @@ if (isset($_POST['U_Signup'])) {
 if (isset($_POST['U_Login'])) {
 
     $log_select_Q =  "SELECT * FROM user_table WHERE UNAME = '$_POST[U_name]' AND UPASSWORD = '$_POST[U_password]'";
-    $log_select_Result = mysqli_query($Db_con, $log_select_Q);
+    $log_select_Result = mysqli_query($conn, $log_select_Q);
     $log_stutas_res = mysqli_fetch_assoc($log_select_Result);
 
     if ($log_stutas_res == 0) {
         $User_Not_Found = true;
     } else {
-        if ($log_stutas_res['STATUS'] == "PENDING") {
-            $Pending = true;
-        } else if ($log_stutas_res['STATUS'] == "VERIFIED") {
-            session_start();
-            $_SESSION['User_N'] = $_POST['U_name'];
-            header("location:Live_Chat.php");
-        } else if ($log_stutas_res['STATUS'] == "BAND") {
-            $Band = true;
-        } else {
-            echo "bad Request";
-        }
+        session_start();
+        $_SESSION['User_N'] = $_POST['U_name'];
+        header("location:index.php");
     }
 }
 ?>
@@ -82,18 +72,7 @@ if (isset($_POST['U_Login'])) {
         <div class="main">
             <!-- Erorr list -->
             <?php
-            if ($Pending) {
-                echo '
-            <div class="top">
-                <h1>Request Pending <i class="bi bi-hourglass-split"></i></h1>
-            </div>
-            <div class="box detail">
-                <h2><span>' . $_POST['U_name'] . '</span> Your Request is verify With in <span>24 hours</span> after you can access account, Please Wait.</h2>
-            </div>
-            
-                <a href="index.php" class="Button"> Go to site<i class="bi bi-arrow-right"></i></a>
-            ';
-            } elseif ($User_Name_Used) {
+            if ($User_Name_Used) {
                 echo '
             <div class="top">
                 <h1>Sign Up Faild <i class="bi bi-person-x-fill"></i></h1>
@@ -127,18 +106,7 @@ if (isset($_POST['U_Login'])) {
                 
                 <a href="Form_login.php" class="Button red"> Re Log in</a>
                 ';
-            } elseif ($Band) {
-                echo '
-                <div class="top">
-                    <h1>User Banned </h1>
-                    <img src="Image/banned.jpg" class="img1">
-                </div>
-                <div class="box detail">
-                    <h2>  <span>' . $_POST['U_name'] . '</span>  Your are Banned.</h2>
-                </div>
-                <a href="index.php" class="Button red"> Go Web-site</a>
-            ';
-            } else {
+            }else {
                 echo "<h1> Bad Request </h1>";
             }
             ?>
