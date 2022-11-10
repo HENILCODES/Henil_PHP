@@ -4,7 +4,6 @@ include('sec_Code.php');
 include("dbcon.php");
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +12,14 @@ include("dbcon.php");
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="icon" href="https://secure.gravatar.com/avatar/19cef1c37b12cb5d47ce71e9894dd14f?s=160&d=identicon&r=g">
     <link rel="stylesheet" href="CSS/HPhome.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="JS/jqcha.js"></script>
 </head>
 
 <body>
-   
     <div class="header">
         <?php
-        $live_U = $_SESSION['User_N'];
+            $live_U = $_SESSION['User_N'];
         ?>
         <div class="main">
             <div class="top">
@@ -44,11 +42,11 @@ include("dbcon.php");
                 if (empty($_POST['chat_u'])) {
                     $_POST['chat_u'] = ".";
                 }
-                
+
                 if (isset($_POST['Done'])) {
                     $file = $_FILES["file"]["name"];
                     $FiD_Name = time() . $_FILES["file"]["name"];
-                    $chat = str_ireplace("<","&lt;",$_POST['chat_u']);
+                    $chat = str_ireplace("<", "&lt;", $_POST['chat_u']);
 
                     $in = "insert into message (User_Name,Message,file,File_Name,Time_Stamps) values ('$live_U','$chat','$FiD_Name','$file','$time_C')";
                     mysqli_query($conn, $in);
@@ -74,17 +72,17 @@ include("dbcon.php");
                 }
                 ?>
                 <p id="HP"></p>
-            </div>
+            </div>  
             <div class="optionB">
-                <span class="bi bi-filetype-pdf opt" id="pdf_B"></span>
+                <label for="file_input" class="bi bi-file-earmark-plus opt" id="pdf_B"></label>
                 <span class="bi bi-chat-dots opt" id="chat_B"></span>
             </div>
             <div class="bottom">
                 <div id="chat_in">
                     <form method="POST" enctype="multipart/form-data" class="form">
                         <span class="bi bi-link-45deg" id="option"></span>
-                        <input type="text" class="input" id="ChatsBox" name="chat_u" autocomplete="off" placeholder="Type Message" title="Type Message">
-                        <input type="file" class="file_in" id="file_input" name="file">
+                        <input type="text" required class="input" id="ChatsBox" value="s" name="chat_u" autocomplete="off" placeholder="Type Message" title="Type Message">
+                        <input type="file" class="file_in none" id="file_input" name="file" hidden>
                         <button class="send bi bi-send" name="Done"> </button>
                     </form>
                 </div>
@@ -95,7 +93,8 @@ include("dbcon.php");
 
 </html>
 <script>
-    document.addEventListener("load",focusIn());
+    document.addEventListener("load", focusIn());
+
     function focusIn() {
         window.location = "Live_Chat.php#HP";
         document.getElementById("ChatsBox").focus();
