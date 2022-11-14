@@ -9,7 +9,7 @@ include("dbcon.php");
 <head>
     <title>Web Chat</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="icon" href="Image/logo.png"> 
+    <link rel="icon" href="Image/logo.png">
     <link rel="stylesheet" href="CSS/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="JS/main.js"></script>
@@ -32,33 +32,36 @@ include("dbcon.php");
                     <a href="whatsapp://send?text=Join With Me for Live Chatting https://henil.rf.gd/Web_Chat/ Come Fast." class="invite_a bi bi-whatsapp" title="Send To What's app"></a>
                     <a class="bi bi-arrow-clockwise" href="index.php" id="ref"></a>
                     <?php if (isset($_SESSION['User_N'])) {
-                        ?>
+                    ?>
                         <form action="logout_Code.php" method="post" class="log_Form">
                             <button name="Log_Out" type="submit" class='login_log'>Log out</button>
                         </form>
-                        <?php
-                        } else {
-                        ?>
-                            <a href="Form_login.php" name="Log_Out" type="submit" class='login_log'>Log in</a>
-                        <?php
-                        }
-                        ?>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="Form_login.php" name="Log_Out" type="submit" class='login_log'>Log in</a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div class="chats" id="chat_s">
+
                 <?php
+
                 date_default_timezone_set("Asia/Calcutta");
                 $time_C = date('d-M-Y g:i a');
+
                 if (isset($_POST['Done'])) {
-                    $file = $_FILES["file"]["name"];
-                    $FiD_Name = time() . $_FILES["file"]["name"];
+
+                    $file = $_FILES["u_file"]["name"];
                     $cha = str_ireplace("<", "&lt;", $_POST['chat_u']);
                     $chat = base64_encode($cha);
-                    
-                    if (move_uploaded_file($_FILES["file"]["tmp_name"], "U_Files/" . $FiD_Name)) {
-                        header("Location: index.php");
-                    }
-                    $in = "insert into message (User_Name,Message,file,File_Name,Time_Stamps) values ('$live_U','$chat','$FiD_Name','$file','$time_C')";
+                    $u_file_name = time() . "-" . $file;
+
+                    move_uploaded_file($_FILES['u_file']['tmp_name'], 'U_Files/' . $u_file_name);
+
+                    $in = "insert into message (User_Name,Message,file,File_Name,Time_Stamps) values ('$live_U','$chat','$u_file_name','$file','$time_C')";
                     mysqli_query($conn, $in);
                 }
                 $select = "SELECT * FROM message";
@@ -90,9 +93,9 @@ include("dbcon.php");
                 ?>
                     <div id="chat_in">
                         <form method="POST" enctype="multipart/form-data" class="form">
-                             <span class="bi bi-link-45deg" id="option"></span>
+                            <span class="bi bi-link-45deg" id="option"></span>
                             <input type="text" class="input" id="ChatsBox" name="chat_u" autocomplete="off" placeholder="Type Message" title="Type Message">
-                            <input type='file' class='file_in none' id='file_input' name='file' >
+                            <input type='file' class='file_in none' id='file_input' name='u_file'>
                             <button class="send bi bi-send" name="Done"> </button>
                         </form>
                     </div>
